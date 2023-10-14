@@ -1,1 +1,0 @@
-this folder should hold any assets (images, sounds, etc) associated with the wheel and spinning component
