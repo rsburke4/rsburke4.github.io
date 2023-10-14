@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxkqac356ggef"]
+
+[ext_resource type="Script" path="res://GuessTracker/guessButton.gd" id="1_0uinw"]
+
+[node name="Guess" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+icon_alignment = 1
+script = ExtResource("1_0uinw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
