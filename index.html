@@ -1,248 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<title>Round Thing of Riches</title>
-		<style>
-body {
-	touch-action: none;
-	margin: 0;
-	border: 0 none;
-	padding: 0;
-	text-align: center;
-	background-color: black;
-}
+﻿<!DOCTYPE html>
+<html>
 
-#canvas {
-	display: block;
-	margin: 0;
-	color: white;
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
 
-#canvas:focus {
-	outline: none;
-}
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="round-thing-of-riches">Round Thing of Riches</h1>
+      <iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/2325648"><a href="https://rsburke.itch.io/roundthing-of-riches">Roundthing of Riches by Rsburke</a></iframe>
+<p>Class group project for “Foundations of Software Engineering” course.</p>
+<p>Gameplay is based on the Wheel of Fortune TV game show; specific rules are below.</p>
+<p>The game is intended to be played on a single computer, with all elements managed by a moderator.  This makes it useful for in-person settings, such as a classroom with the teacher as the moderator, or virtual meetings, such as an ice breaker activity for remote teams.  See below on how to launch and manage the game.</p>
+<h1 id="game-objective-and-rules">Game objective and rules</h1>
+<p>(Game rules have been adopted from the TV game show rules, which are summarized <a href="https://roulettedoc.com/wof-rules">here</a>.)</p>
+<h2 id="objective">Objective</h2>
+<p>Accumulate money during a round by making correct guesses of letters in a phrase.  The round ends when a player/team solves the puzzle; only the winning player/team is awarded their earned money at the end of the round.</p>
+<p>After the specified number of rounds, the player/team which has was the highest amount of money wins!</p>
+<h2 id="rules">Rules</h2>
+<p>After selecting the number of players/teams participating, the game will start the first round with player 1, the second round with player 2, etc.  There will be as many rounds played as players selected, so each player has the chance to start a round.</p>
+<h3 id="round-play">Round play</h3>
+<ol>
+<li>Starting player spins the wheel.</li>
+<li>Based on the space it lands on:
+<ul>
+<li>Dollar value: player may guess a consonant for the dollar amount shown on the wheel; play continues if the consonant appears and passes to next player if it does not</li>
+<li>Bankrupt: player loses all money; play passes to next player</li>
+<li>Lose a turn: no penalty for current player; play passes to next player</li>
+<li>Free play: player may guess a consonant for $500, a vowel for free, or try to solve the puzzle; player’s turn continues, even if wrong</li>
+</ul>
+</li>
+<li>A player that correctly guesses a consonant that appears in the puzzle:
+<ul>
+<li>Earns money for each of the guessed consonant that appears in the puzzle (e.g. if on $500 and guess “T” for a puzzle that contains 2 T’s, they earn $1000 toward their total score for the round)</li>
+<li>May then opt to buy any number of vowels for $250 per guess (e.g. it will cost $250 if the puzzle contains 1 “A” or multiple)</li>
+<li>Can try to solve the puzzle after making a correct letter guess</li>
+<li>May spin the wheel again to make another guess (step 2)</li>
+</ul>
+</li>
+<li>The player’s turn ends by an incorrect guess (letter or solution) or landing on the “Bankrupt” or “Lose a turn” spaces</li>
+<li>Play continues by rotating through players until the puzzle is solved (steps 1-3)</li>
+<li>The player who solves the puzzle wins the money they have earned.  All other players get $0 for the round.</li>
+</ol>
+<p>Play continues until all rounds have been completed.  The player with the highest score at the end of the game is the winner.  See below for note on tie breaker scenario.</p>
+<h3 id="other-rules">Other rules</h3>
+<ol>
+<li>Each puzzle will be accompanied by a category that gives a clue or hint about the solution</li>
+<li>Players will not be allowed to buy a vowel if the puzzle no longer contains vowels</li>
+<li>Players will be allowed to only buy vowels once all consonants in the puzzle have been guessed</li>
+<li>Puzzles may only be solved after guessing a correct letter (that is, a player cannot solve the puzzle without either spinning the wheel and making a (correct) guess or buying a (correct) vowel</li>
+<li>Minimum round winning is $1000 (e.g., if the player who solves the puzzle has $750, they are awarded $1000 for the round)</li>
+<li>Letters which have already been guessed will be unavailble on the game dashboard so it is not possible to re-guess a letter</li>
+<li>When only vowels are left in the puzzle, players do not have to spin the wheel.  They may guess a vowel (if they have &gt;$250) or try to solve.</li>
+<li>When a tie occurs, the two players who tie will take part in a one-round tie breaker game.  The winner of this round wins the game.</li>
+</ol>
+<h1 id="technology-stack-used">Technology stack used</h1>
+<p>Game created using <a href="https://godotengine.org/">Godot game engine</a>.</p>
+<h1 id="setup-and-deployment">Setup and deployment</h1>
+<ol>
+<li>TBD (website and other setup steps, if necessary)</li>
+<li>Hosting and moderating
+<ul>
+<li>Host launches game and creates 2-4 teams, depending on the size of the group</li>
+<li>Click the “Start Game” button and select the appropriate number of players (teams)</li>
+<li>Each team instructs moderator what they would like to do: spin, guess, or solve
+<ul>
+<li>Spin: moderator clicks the wheel</li>
+<li>Guess: moderator clicks the button corresponding to the letter that was guessed</li>
+<li>Solve: moderator clicks the “Solve” button and types the response in the text box that appears, then clicks “Submit” when team approves</li>
+</ul>
+</li>
+<li>In the case of a tie, moderator will assign the tied teams a number 1 through (number of tied teams) for the sudden-death round.  Note that these may not correspond to the team numbers assigned during the regular game rounds.</li>
+<li>To replay, moderator can click “Replay” button at the end of a game</li>
+<li>Optional: if host is comfortable sharing screen control (over Zoom or Teams) or in-person play allows, teams may have a representative do the above actions themselves, removing the need for a moderator (who can instead participate in the game)</li>
+</ul>
+</li>
+</ol>
+<h1 id="credits">Credits</h1>
+<h2 id="rd-party-assets">3rd-party Assets</h2>
+<ul>
+<li>Wheel Answers Come from <a href="https://www.datagrabber.org/wheel-of-fortune-facebook-game/wheel-of-fortune-cheat-answer/">DataGrabber’s previous scrape of a Wheel of Fortune Facebook game</a></li>
+</ul>
+<p>A truncated version of the HTML containing the table is saved in res://WebScraper/</p>
+<ul>
+<li>
+<p>Font: <a href="https://fonts.google.com/specimen/Lilita+One?classification=Display&amp;stroke=Sans+Serif&amp;sort=popularity&amp;preview.text=ABCDEFGHIJK&amp;preview.text_type=custom">Lilita One</a> (Google Fonts)</p>
+</li>
+<li>
+<p>Tools for deployment to GitHub pages:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/godot/comments/10buva4/github_action_to_deploy_a_godot_4_game/?rdt=39430">Guide for deployment</a></li>
+<li><a href="https://gist.github.com/Dams4K/0485cbc874a04030eac8cf0e40c730ac">Tool for deployment</a></li>
+<li><a href="https://github.com/gzuidhof/coi-serviceworker">Tool for deployment</a></li>
+<li><a href="itch.io">Itch.io or embedded gameplay on all browsers</a></li>
+</ul>
+</li>
+<li>
+<p>README to HTML Export For GitHub Pages: <a href="http://Stackedit.io">Stackedit.io</a></p>
+</li>
+</ul>
+<h2 id="code-snippets">Code snippets</h2>
+<ul>
+<li><a href="https://docs.godotengine.org/en/3.0/getting_started/step_by_step/singletons_autoload.html">Using AutoLoad for constants</a></li>
+<li><a href="https://www.reddit.com/r/godot/comments/12zh2qq/godot_40_why_wont_my_ui_panel_stylebox_overwrite/">Setting styles for components</a><pre><code>var stylebox_active = get_theme_stylebox("normal").duplicate()
+style.&lt;property&gt; = &lt;new value&gt;
+add_theme_stylebox_override("normal", stylebox_active)
+</code></pre>
+</li>
+<li><a href="https://ask.godotengine.org/106152/convert-an-character-to-ascii-value">Translating between ASCII code and character (used in GuessTracker)</a><pre><code>var ascii = &lt;string&gt;.unicode_at(0)  # ASCII code for first character of &lt;string&gt;
+button_i.text = char(start_ascii + i)  # convert ASCII code to character
+</code></pre>
+</li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_json.html">Parsing JSON file (used in PuzzleBoard)</a><pre><code>var json = JSON.new()
+var raw_data = FileAccess.get_file_as_string(&lt;filename&gt;)
+var all_answers = json.parse_string(raw_data)
+</code></pre>
+</li>
+</ul>
+<h1 id="reflection-design-and-development-process">Reflection: Design and development process</h1>
+<p>To begin working on this project, our team had an initial meeting to decide what game we were going to implement would be, and the tech stack that we would use to develop it. In this meeting we discussed major components that composed the game. We made a basic schedule of milestones that would guide us through the project. As we worked on the project, we had weekly meetings to discuss progress, and divide the next week’s work items up amongst the team. This process formed the backbone for our development cycle and kept the project moving forward each week.</p>
+<p>The biggest challenges we faced during this project were related to inexperience with the tech stack and tools we opted to use.  Most members of the team had limited prior experience with Git and Godot and had to ramp-up knowledge to be able to use these effectively in implementing the game.  Similarly, the effectiveness of using Teams for collaboration in a remote setting was reduced due to a prior lack of experience of most team members in such an environment.  There was also a lack of experience across the team in using GitHub Pages for deploying the game.  Although these are identified as challenges, we were able to successfully overcome all of them and produce a game that met all of our stated objectives.</p>
+<p>As a team, we identified several things that helped us work better together, and a handful of things that detracted from our teamwork.  Performing planning of the game upfront, and creating a weekly schedule for implementation, helped us see the game from a higher level and break down each part to manageable pieces.  Holding weekly update meetings were helpful for tracking progress and making adjustments to the development plan.  Furthermore, the team agreed on an approach for using GitHub for version control by creating feature branches and merging to the main branch on completion, which reduced the number of merge conflicts we encountered.  Despite creating a product following the original plan, we ran into some problems from not adapting appropriate tools for project tracking.  It was easy to forget about the weekly meetings because there was no calendar event created for the meeting, and it was easy to lose track of assigned tasks as we did not use a project board or other means for tracking progress on the assignment.  Furthermore, we ran into problems by assigning tasks without taking prior experience or pace of working of developers as individuals.</p>
+<p>We summarized the above observations into three lessons learned from this experiences.  First, the time and effort put into planning the game up front, and holding weekly progress meetings, helped us complete the majority of the game before the due date.  Next, including a scoping activity during the planning stage helped us identify what to place the highest priority on during implementation.  Finally, it is beneficial to discuss with each developer their prior experience with the tech stack to avoid assigning too many tasks to developers who are still ramping up on it.</p>
+</div>
+</body>
 
-.godot {
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	color: #e0e0e0;
-	background-color: #3b3943;
-	background-image: linear-gradient(to bottom, #403e48, #35333c);
-	border: 1px solid #45434e;
-	box-shadow: 0 0 1px 1px #2f2d35;
-}
-
-/* Status display */
-
-#status {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* don't consume click events - make children visible explicitly */
-	visibility: hidden;
-}
-
-#status-progress {
-	width: 366px;
-	height: 7px;
-	background-color: #38363A;
-	border: 1px solid #444246;
-	padding: 1px;
-	box-shadow: 0 0 2px 1px #1B1C22;
-	border-radius: 2px;
-	visibility: visible;
-}
-
-@media only screen and (orientation:portrait) {
-	#status-progress {
-		width: 61.8%;
-	}
-}
-
-#status-progress-inner {
-	height: 100%;
-	width: 0;
-	box-sizing: border-box;
-	transition: width 0.5s linear;
-	background-color: #202020;
-	border: 1px solid #222223;
-	box-shadow: 0 0 1px 1px #27282E;
-	border-radius: 3px;
-}
-
-#status-indeterminate {
-	height: 42px;
-	visibility: visible;
-	position: relative;
-}
-
-#status-indeterminate > div {
-	width: 4.5px;
-	height: 0;
-	border-style: solid;
-	border-width: 9px 3px 0 3px;
-	border-color: #2b2b2b transparent transparent transparent;
-	transform-origin: center 21px;
-	position: absolute;
-}
-
-#status-indeterminate > div:nth-child(1) { transform: rotate( 22.5deg); }
-#status-indeterminate > div:nth-child(2) { transform: rotate( 67.5deg); }
-#status-indeterminate > div:nth-child(3) { transform: rotate(112.5deg); }
-#status-indeterminate > div:nth-child(4) { transform: rotate(157.5deg); }
-#status-indeterminate > div:nth-child(5) { transform: rotate(202.5deg); }
-#status-indeterminate > div:nth-child(6) { transform: rotate(247.5deg); }
-#status-indeterminate > div:nth-child(7) { transform: rotate(292.5deg); }
-#status-indeterminate > div:nth-child(8) { transform: rotate(337.5deg); }
-
-#status-notice {
-	margin: 0 100px;
-	line-height: 1.3;
-	visibility: visible;
-	padding: 4px 6px;
-	visibility: visible;
-}
-		</style>
-		<link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
-<link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
-<script src="coi-serviceworker.js"></script>
-	</head>
-	<body>
-		<canvas id="canvas">
-			HTML5 canvas appears to be unsupported in the current browser.<br >
-			Please try updating or use a different browser.
-		</canvas>
-		<div id="status">
-			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-				<div id ="status-progress-inner"></div>
-			</div>
-			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<div id="status-notice" class="godot" style="display: none;"></div>
-		</div>
-
-		<script src="index.js"></script>
-		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":1,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":2749936,"index.wasm":28972640},"focusCanvas":true,"gdextensionLibs":[]};
-const engine = new Engine(GODOT_CONFIG);
-
-(function () {
-	const INDETERMINATE_STATUS_STEP_MS = 100;
-	const statusProgress = document.getElementById('status-progress');
-	const statusProgressInner = document.getElementById('status-progress-inner');
-	const statusIndeterminate = document.getElementById('status-indeterminate');
-	const statusNotice = document.getElementById('status-notice');
-
-	let initializing = true;
-	let statusMode = 'hidden';
-
-	let animationCallbacks = [];
-	function animate(time) {
-		animationCallbacks.forEach((callback) => callback(time));
-		requestAnimationFrame(animate);
-	}
-	requestAnimationFrame(animate);
-
-	function animateStatusIndeterminate(ms) {
-		const i = Math.floor((ms / INDETERMINATE_STATUS_STEP_MS) % 8);
-		if (statusIndeterminate.children[i].style.borderTopColor === '') {
-			Array.prototype.slice.call(statusIndeterminate.children).forEach((child) => {
-				child.style.borderTopColor = '';
-			});
-			statusIndeterminate.children[i].style.borderTopColor = '#dfdfdf';
-		}
-	}
-
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		[statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
-			elem.style.display = 'none';
-		});
-		animationCallbacks = animationCallbacks.filter(function (value) {
-			return (value !== animateStatusIndeterminate);
-		});
-		switch (mode) {
-		case 'progress':
-			statusProgress.style.display = 'block';
-			break;
-		case 'indeterminate':
-			statusIndeterminate.style.display = 'block';
-			animationCallbacks.push(animateStatusIndeterminate);
-			break;
-		case 'notice':
-			statusNotice.style.display = 'block';
-			break;
-		case 'hidden':
-			break;
-		default:
-			throw new Error('Invalid status mode');
-		}
-		statusMode = mode;
-	}
-
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
-	function displayFailureNotice(err) {
-		const msg = err.message || err;
-		console.error(msg);
-		setStatusNotice(msg);
-		setStatusMode('notice');
-		initializing = false;
-	}
-
-	const missing = Engine.getMissingFeatures();
-	if (missing.length !== 0) {
-		const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-		displayFailureNotice(missingMsg + missing.join('\n'));
-	} else {
-		setStatusMode('indeterminate');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (total > 0) {
-					statusProgressInner.style.width = `${(current / total) * 100}%`;
-					setStatusMode('progress');
-					if (current === total) {
-						// wait for progress bar animation
-						setTimeout(() => {
-							setStatusMode('indeterminate');
-						}, 500);
-					}
-				} else {
-					setStatusMode('indeterminate');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-			initializing = false;
-		}, displayFailureNotice);
-	}
-}());
-		</script>
-	</body>
 </html>
-
